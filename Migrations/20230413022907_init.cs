@@ -11,7 +11,7 @@ namespace cookEaseBackEnd.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ArticleItemModel",
+                name: "ArticleInfo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,25 +29,17 @@ namespace cookEaseBackEnd.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArticleItemModel", x => x.Id);
+                    table.PrimaryKey("PK_ArticleInfo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RecipeInfo",
+                name: "IngredientInfo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    PublisherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Diet = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Region = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    isPublished = table.Column<bool>(type: "bit", nullable: false),
-                    isDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    RecipeId = table.Column<int>(type: "int", nullable: true),
+                    Ingredent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,10 +65,10 @@ namespace cookEaseBackEnd.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ArticleItemModel");
+                name: "ArticleInfo");
 
             migrationBuilder.DropTable(
-                name: "RecipeInfo");
+                name: "IngredientInfo");
 
             migrationBuilder.DropTable(
                 name: "UserInfo");

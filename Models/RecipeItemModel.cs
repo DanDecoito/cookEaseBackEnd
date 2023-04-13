@@ -8,7 +8,14 @@ using Microsoft.EntityFrameworkCore;
 namespace cookEaseBackEnd.Models
 {
 
-    [Keyless]
+    public class ArrIngredients
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = "";
+    public float Weight { get; set; }
+}
+
+
     public class RecipeItemModel
     {
         public int Id { get; set; }
@@ -24,7 +31,7 @@ namespace cookEaseBackEnd.Models
 
         public bool isPublished { get; set; }
         public bool isDeleted { get; set; }
-
+        public List<ArrIngredients>? Ingredients { get; set; }
         public RecipeItemModel() { }
     }
 }
